@@ -13,6 +13,7 @@
 
 <section class="content">
   @include('adm_escuela.curso.create-curso')
+  @include('adm_escuela.curso.edit-curso')
   <div class="row">
     <section class="col-lg-6">
       <div class="box box-danger">
@@ -41,19 +42,17 @@
                 <td>{{ $curso->paralelo }}</td>
                 <td>{{ $curso->capacidad }}</td>
                 <td colspan="1" style="text-align:center;">
-                  <a class="btn btn-sm btn-danger btn-delete"
-                     data-target="#modal_confirm-"
-                     data-toggle="modal" class="btn btn-danger">
+                  <a class="btn btn-sm btn-warning btn-curso-edit"
+                     onclick="cargarEditarCurso('{{ route('cursos.edit', $curso->id) }}')">
                     <i class="fa fa-pencil"></i>
                   </a>
-                  <a class="btn btn-sm btn-danger btn-delete"
-                     data-target="#modal_confirm-"
-                     data-toggle="modal" class="btn btn-danger">
+                  <a class="btn btn-sm btn-primary btn-cursomat-create"
+                     onclick="cargarEditarCurso('{{ route('cursos.edit', $curso->id) }}')">
                     <i class="fa fa-plus"></i>
                   </a>
-                  <a class="btn btn-sm btn-danger btn-delete"
+                  <a class="btn btn-sm btn-danger btn-curso-delete"
                      data-target="#modal_confirm-"
-                     data-toggle="modal" class="btn btn-danger">
+                     data-toggle="modal">
                     <i class="fa fa-trash"></i>
                   </a>
                 </td>

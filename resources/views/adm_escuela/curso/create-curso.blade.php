@@ -13,30 +13,30 @@
           {!! Form::open(['route' => 'cursos.store','method' => 'POST', 'id' => 'form-create-curso']) !!}
           <div class="form-group">
             <label for="nombre">Grado:</label>
-            {!! Form::text('nivel',null,['class'=>'form-control', 'placeholder' => 'Cuarto o 4to','id'=>'id-nivel']) !!}
-            <span class="help-block" id="create-nivel" style="display: none; color: red"><i class="fa fa-times-circle-o"></i></span>
+            {!! Form::text('nivel',null,['class'=>'form-control', 'placeholder' => 'Cuarto o 4to','id'=>'nivel-id']) !!}
+            <span class="help-block" id="edit-nivel" style="display: none; color: red"><i class="fa fa-times-circle-o"></i></span>
           </div>
 
           <div class="form-group">
             <label for="paralelo"></label>
-            <select name="paralelo" id="paralelo" class="form-control select2" style="width: 100%;">
-              <option value="1">A</option>
-              <option value="2">B</option>
-              <option value="3">C</option>
-              <option value="4">D</option>
-              <option value="5">E</option>
-              <option value="6">F</option>
-              <option value="7">G</option>
-              <option value="8">H</option>
-              <option value="9">I</option>
+            <select name="paralelo" id="paralelo-edit" class="form-control select2" style="width: 100%;">
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+              <option value="G">G</option>
+              <option value="H">H</option>
+              <option value="I">I</option>
             </select>
-            <span class="help-block" id="create-paralelo" style="display: none; color: red"><i class="fa fa-times-circle-o"></i></span>
+            <span class="help-block" id="edit-paralelo" style="display: none; color: red"><i class="fa fa-times-circle-o"></i></span>
           </div>
 
           <div class="form-group">
             <label for="capacidad">Capacidad de alumnos:</label>
-            {!! Form::number('capacidad',null,['class'=>'form-control', 'id'=>'id-capacidad']) !!}
-            <span class="help-block" id="create-capacidad" style="display: none; color: red"><i class="fa fa-times-circle-o"></i></span>
+            {!! Form::number('capacidad',null,['class'=>'form-control', 'id'=>'capacidad-id']) !!}
+            <span class="help-block" id="edit-capacidad" style="display: none; color: red"><i class="fa fa-times-circle-o"></i></span>
           </div>
 
           {!! Form::close() !!}

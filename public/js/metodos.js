@@ -147,11 +147,11 @@ function deleteMateria(url) {
 }
 
 function crearCurso() {
-    /*var form = $('#form-create-curso');
+    var form = $('#form-create-curso');
     var url = form.attr('action');
     $.post(url, form.serialize(), function(result){
         curso();
-        $('#create-curso').modal('hide');
+        $('#create_curso').modal('hide');
     }).fail(function(dato){
         var errors = dato.responseJSON;
         if ($.trim(errors)) {
@@ -160,6 +160,48 @@ function crearCurso() {
                 $("#create-" + key).text(value[0]);
             });
         }
-    });*/
-    alert('hoal');
+    });
+}
+
+function cargarEditarCurso(url) {
+    $.ajax({
+        type: 'GET',
+        url: url,
+        dataType: 'json',
+    }).done(function(res){
+        $('#edit-id-curso').val(res.id);
+        $('#edit-nivel').val(res.nivel);
+        $('#edit-paralelo').val(res.paralelo);
+        $('#edit-capacidad').val(res.capacidad);
+    });
+    $('#edit-curso').modal('show');
+}
+
+function editarCurso(url) {
+    var token = $('#curso-edit-token').val();
+    var id = $("#edit-id-curso").val();
+    var nivel = $("#edit-nivel").val();
+    var paralelo = $("#edit-paralelo").val();
+    var capacidad = $("#edit-capacidad").val();
+    alert(paralelo);
+    url = url.replace(':id', id);
+    $.ajax({
+        type: 'PUT',
+        url: url,
+        headers: {'X-CSRF-TOKEN':token},
+        data:{'nivel':nivel},
+        dataType: 'json',
+        success: function(data){
+            materia();
+        },
+        error: function(error){
+            var errors = error.responseJSON;
+            if ($.trim(errors)){
+                $.each( errors, function( key, value ) {
+                    $("#edit-materia-" + key).show();
+                    $("#edit-materia-" + key).text(value[0]);
+                });
+            }
+        }
+    });   
 }

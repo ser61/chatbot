@@ -42,4 +42,10 @@ class Turno extends Model
     return $colegio_id;
   }
 
+  public function scope_getTurno($query, $director_id)
+  {
+    $colegio_id = $query->wherePersonaId($director_id)->get()->first()->id;
+    return $colegio_id;
+  }
+
 }

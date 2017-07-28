@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Curso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class CursoController extends Controller
 {
     public function index()
     {
-      $cursos = Curso::_getAll();
+      $cursos = Curso::_getAll()->get();
       $view = view('adm_escuela.curso.index-curso', compact('cursos'));
       return Response($view);
     }
@@ -21,7 +22,8 @@ class CursoController extends Controller
 
     public function store(Request $request)
     {
-      return 'hoal';
+      Curso::_createCurso($request);
+      return Response('hola');
     }
 
     public function show($id)
@@ -31,7 +33,8 @@ class CursoController extends Controller
 
     public function edit($id)
     {
-        //
+      $curso = Curso::find($id);
+      return Response($curso);
     }
 
     public function update(Request $request, $id)
