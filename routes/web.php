@@ -33,6 +33,13 @@ Route::resource('docentes','DocenteController');
 Route::resource('materias','MateriaController');
 
 Route::resource('cursos','CursoController');
+<<<<<<< HEAD
 Route::get('/php',function(){
   phpinfo();
 });
+=======
+
+Route::resource('materia-curso','MateriaCursoController');
+
+Route::resource('alumnos','AlumnoController');
+>>>>>>> origin/master

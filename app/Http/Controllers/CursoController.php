@@ -3,16 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Curso;
+use App\Docente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
+use App\Materia;
 
 class CursoController extends Controller
 {
     public function index()
     {
-      $cursos = Curso::_getAll()->get();
-      $view = view('adm_escuela.curso.index-curso', compact('cursos'));
-      return Response($view);
+        $asignaciones = [];
+        $materias = Materia::_getMateriasLis()->pluck('nombre', 'id');
+        $docentes = Docente::_getDocentesLis()->pluck('nombre', 'id');
+        $cursos = Curso::_getAll()->get();
+        $view = view('adm_escuela.curso.index-curso', compact('cursos','materias','docentes', 'asignaciones'));
+        return Response($view);
     }
 
     public function create()
@@ -47,7 +52,7 @@ class CursoController extends Controller
 
     public function destroy($id)
     {
-        //
+
     }
   
   public function crearCursoMateria()

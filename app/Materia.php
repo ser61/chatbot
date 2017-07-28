@@ -32,4 +32,12 @@ class Materia extends Model
     $request['colegio_id'] = $colegio_id;
     $this->create($request->all());
   }
+
+  public function scope_getMateriasLis($query)
+  {
+     $colegio_id = Turno::_getColegio(Auth::user()->persona_id);
+      $materias = $query->select('id as id', 'nombre as nombre')
+          ->whereColegioId($colegio_id);
+      return $materias;
+  }
 }

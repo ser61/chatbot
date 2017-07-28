@@ -45,4 +45,11 @@ class Docente extends Model
     return $docentes;
   }
 
+    public function scope_getDocentesLis($query)
+    {
+        $colegio_id = Turno::_getColegio(Auth::user()->persona_id);
+        $docentes = $query->select('id as id', 'nombres as nombre')
+            ->whereColegioId($colegio_id);
+        return $docentes;
+  }
 }

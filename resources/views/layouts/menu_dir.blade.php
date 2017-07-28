@@ -14,8 +14,8 @@
           <i id="i_materia" class="fa fa-folder-open"></i> Materias</a></li>
       <li id="curso" onclick="activar(2)"><a href="#">
           <i id="i_curso" class="fa fa-archive"></i> Cursos</a></li>
-      <li id="usuario" onclick="activar(3)"><a href="#">
-          <i id="i_usuario" class="fa fa-user"></i> Usuarios</a></li>
+      <li id="alumno" onclick="activar(3)"><a href="#">
+          <i id="i_alumno" class="fa fa-user"></i> Alumno</a></li>
     </ul>
   </li>
 
