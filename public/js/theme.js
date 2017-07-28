@@ -19,6 +19,7 @@ function activar(data){
             $('#escuela').addClass('active treeview');
             $('#curso').addClass('active');
             $('#i_curso').addClass('text-red');
+            curso();
             break;
         case 3:
             limpiar();
@@ -55,6 +56,16 @@ function materia(){
     $.ajax({
         type: 'GET',
         url: "materias",
+        success: function (data) {
+            $('#Mainbody').html(data);
+        }
+    });
+}
+
+function curso() {
+    $.ajax({
+        type: 'GET',
+        url: "cursos",
         success: function (data) {
             $('#Mainbody').html(data);
         }

@@ -15,7 +15,7 @@ class CreateCursoTable extends Migration
   {
     Schema::create('curso', function (Blueprint $table) {
       $table->increments('id');
-      $table->char(20);
+      $table->char('nivel',20);
       $table->tinyInteger('capacidad');
       $table->char('paralelo', 40);
       $table->integer('colegio_id');

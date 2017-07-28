@@ -146,6 +146,20 @@ function deleteMateria(url) {
     });
 }
 
-function prueba(dato){
-    return dato + " jojo";
+function crearCurso() {
+    /*var form = $('#form-create-curso');
+    var url = form.attr('action');
+    $.post(url, form.serialize(), function(result){
+        curso();
+        $('#create-curso').modal('hide');
+    }).fail(function(dato){
+        var errors = dato.responseJSON;
+        if ($.trim(errors)) {
+            $.each(errors, function(key, value) {
+                $("#create-" + key).show();
+                $("#create-" + key).text(value[0]);
+            });
+        }
+    });*/
+    alert('hoal');
 }
