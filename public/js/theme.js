@@ -77,7 +77,7 @@ function verMaterias(url) {
         type: 'GET',
         url: url,
         success: function (data) {
-            $('#Mainbody').html(data);
+            $('#Mainbody    ').html(data);
         }
     });
 }

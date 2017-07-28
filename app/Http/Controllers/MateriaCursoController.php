@@ -46,7 +46,7 @@ class MateriaCursoController extends Controller
      */
     public function show($id)
     {
-        $asignaciones = MateriaCurso::_getAll($id);
+        $asignaciones = MateriaCurso::_getAll($id)->get();
         $materias = Materia::_getMateriasLis()->pluck('nombre', 'id');
         $docentes = Docente::_getDocentesLis()->pluck('nombre', 'id');
         $cursos = Curso::_getAll()->get();

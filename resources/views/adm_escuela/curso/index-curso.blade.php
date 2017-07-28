@@ -85,15 +85,13 @@
             <thead>
             <tr>
               <th>Materia</th>
-              <th>Docente</th>
               <th>Accion</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($asignaciones as $asignacione)
+            @foreach($asignaciones as $asignacione  )
               <tr>
                 <td>{{ $asignacione->materia }}</td>
-                <td>{{ $asignacione->docente }}</td>
                 <td colspan="1" style="text-align:center;">
                   <a class="btn btn-sm btn-warning btn-curso-edit">
                     <i class="fa fa-pencil"></i>
@@ -108,7 +106,6 @@
             <tfoot>
             <tr>
               <th>Materia</th>
-              <th>Docente</th>
               <th>Accion</th>
             </tr>
             </tfoot>
