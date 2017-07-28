@@ -237,3 +237,86 @@ function crearMateriaCurso(url) {
         }
     });
 }
+
+$('#crear_alumno').on('hide.bs.modal', function (e) {
+    $("#crear-alumno-nombres").hide();
+    $("#crear-alumno-apellidos").hide();
+    $("#crear-alumno-ci").hide();
+    $("#crear-alumno-celular").hide();
+})
+
+function showModalEditAlumno(url) {
+    $.ajax({
+        type: 'GET',
+        url: url,
+        dataType: 'json',
+    }).done(function(res){
+        $('#edit-alumno-id').val(res.id);
+        $('#edit-alumno-nombres').val(res.nombres);
+        $('#edit-alumno-apellidos').val(res.apellidos);
+        $('#edit-alumno-celular').val(res.celular);
+        $('#edit-alumno-ci').val(res.ci);
+        $('.midato').val(res.fecha_nacimiento);
+    });
+    $('#edit_alumno').modal('show');
+}
+
+function editarAlumno(url) {
+    var id                  = $('#edit-alumno-id').val();
+    var nombres             = $('#edit-alumno-nombres').val();
+    var apellidos           = $('#edit-alumno-apellidos').val();
+    var celular             = $('#edit-alumno-celular').val();
+    var ci                  = $('#edit-alumno-ci').val();
+    var fecha_nacimiento    = $('.midato').val();
+    var token               = $('#edit-alumno-token').val();
+    $.ajax({
+        type: 'PUT',
+        url: url,
+        headers: {'X-CSRF-TOKEN':token},
+        data: {'id':id, 'nombres': nombres, 'apellidos':apellidos, 'celular':celular, 'ci':ci,'fecha_nacimiento':fecha_nacimiento},
+        dataType: 'json',
+        success: function(data){
+            alumno();
+            $('#edit_alumno').modal('hide');
+        },
+        error: function(error){
+            var errors = error.responseJSON;
+            if ($.trim(errors)){
+                $.each( errors, function( key, value ) {
+                    $("#editar-alumno-" + key).show();
+                    $("#editar-alumno-" + key).text(value[0]);
+                });
+            }
+        }
+    });
+}
+
+function crearAlumno() {
+    var form = $('#form-alumno');
+    var url = form.attr('action');
+    $.post(url, form.serialize(), function(result){
+        alumno();
+        $('#crear_alumno').modal('hide');
+    }).fail(function(dato){
+        var errors = dato.responseJSON;
+        if ($.trim(errors)) {
+            $.each(errors, function(key, value) {
+                $("#crear-alumno-" + key).show();
+                $("#crear-alumno-" + key).text(value[0]);
+            });
+        }
+    });
+}
+
+function deleteAlumnos(url) {
+    var token = $('#alumno-token').val();
+    $.ajax({
+        type: 'DELETE',
+        url: url,
+        headers: {'X-CSRF-TOKEN':token},
+        dataType: 'json',
+        success: function(data) {
+            alumno();
+        }
+    });
+}

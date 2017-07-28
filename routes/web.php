@@ -35,3 +35,5 @@ Route::resource('materias','MateriaController');
 Route::resource('cursos','CursoController');
 
 Route::resource('materia-curso','MateriaCursoController');
+
+Route::resource('alumnos','AlumnoController');

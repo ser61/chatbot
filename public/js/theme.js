@@ -24,8 +24,9 @@ function activar(data){
         case 3:
             limpiar();
             $('#escuela').addClass('active treeview');
-            $('#usuario').addClass('active');
-            $('#i_usuario').addClass('text-red');
+            $('#alumno').addClass('active');
+            $('#i_alumno').addClass('text-red');
+            alumno();
             break;
         case 4:
             limpiar();
@@ -72,6 +73,16 @@ function curso() {
     });
 }
 
+function alumno() {
+    $.ajax({
+        type: 'GET',
+        url: "alumnos",
+        success: function (data) {
+            $('#Mainbody').html(data);
+        }
+    });
+}
+
 function verMaterias(url) {
     $.ajax({
         type: 'GET',
@@ -94,8 +105,8 @@ function limpiar(){
     $('#curso').removeClass('active');
     $('#i_curso').removeClass('text-red');
 
-    $('#usuario').removeClass('active');
-    $('#i_usuario').removeClass('text-red');
+    $('#alumno').removeClass('active');
+    $('#i_alumno').removeClass('text-red');
 
     $('#chatbot1').removeClass('active');
     $('#i_chatbot1').removeClass('text-red');
