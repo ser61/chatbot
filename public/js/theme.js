@@ -72,6 +72,16 @@ function curso() {
     });
 }
 
+function verMaterias(url) {
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function (data) {
+            $('#Mainbody').html(data);
+        }
+    });
+}
+
 function limpiar(){
     $('#escuela').addClass('treeview');
 

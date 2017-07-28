@@ -205,3 +205,35 @@ function editarCurso(url) {
         }
     });   
 }
+
+function cargarCrearMateriaCurso(id) {
+    $("#agregar-curso").val(id);
+    $("#agregarMateria").show();
+    $("#tableMateria").hide();
+}
+
+function crearMateriaCurso(url) {
+    var id = $('#agregar-curso').val();
+    var materia_id = $('#agregar-materia').val();
+    var persona_id = $('#agregar-persona').val();
+    var token = $('#agregar-curso-token').val();
+    $.ajax({
+        type: 'POST',
+        url: url,
+        headers: {'X-CSRF-TOKEN':token},
+        data: {'curso_id':id, 'meteria_id': materia_id, 'persona_id':persona_id},
+        dataType: 'json',
+        success: function(data){
+            curso();
+        },
+        error: function(error){
+            var errors = error.responseJSON;
+            if ($.trim(errors)){
+                $.each( errors, function( key, value ) {
+                    $("#agregar-" + key).show();
+                    $("#agregar-" + key).text(value[0]);
+                });
+            }
+        }
+    });
+}
