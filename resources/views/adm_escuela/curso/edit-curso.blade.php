@@ -11,13 +11,13 @@
         <div class="box-body">
           <div class="form-group">
             <label for="nombre">Grado:</label>
-            {!! Form::text('nivel',null,['class'=>'form-control', 'placeholder' => 'Cuarto o 4to','id'=>'nivel-edit']) !!}
-            <span class="help-block" id="edit-nivel" style="display: none; color: red"><i class="fa fa-times-circle-o"></i></span>
+            {!! Form::text('nivel',null,['class'=>'form-control nivel', 'placeholder' => 'Cuarto o 4to','id'=>'nivel-edit']) !!}
+            <span class="help-block" id="edit-curso-nivel" style="display: none; color: red"><i class="fa fa-times-circle-o"></i></span>
           </div>
 
           <div class="form-group">
             <label for="paralelo"></label>
-            <select name="paralelo" id="edit-paralelo" class="form-control select2" style="width: 100%;">
+            <select name="paralelo" id="paralelo-editar" class="form-control paralelo select2" style="width: 100%;">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
@@ -28,13 +28,13 @@
               <option value="H">H</option>
               <option value="I">I</option>
             </select>
-            <span class="help-block" id="edit-paralelo" style="display: none; color: red"><i class="fa fa-times-circle-o"></i></span>
+            <span class="help-block" id="edit-curso-paralelo" style="display: none; color: red"><i class="fa fa-times-circle-o"></i></span>
           </div>
 
           <div class="form-group">
             <label for="capacidad">Capacidad de alumnos:</label>
-            {!! Form::number('capacidad',null,['class'=>'form-control', 'id'=>'edit-capacidad']) !!}
-            <span class="help-block" id="edit-capacidad" style="display: none; color: red"><i class="fa fa-times-circle-o"></i></span>
+            {!! Form::number('capacidad',null,['class'=>'form-control', 'id'=>'capacidad-editar']) !!}
+            <span class="help-block" id="edit-curso-capacidad" style="display: none; color: red"><i class="fa fa-times-circle-o"></i></span>
           </div>
           <input type="hidden" name="_token" value="{{ csrf_token() }}" id="curso-edit-token">
           <input type="hidden" name="id" id="edit-id-curso">

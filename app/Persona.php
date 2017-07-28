@@ -10,7 +10,7 @@ class Persona extends Model
   protected $table = 'persona';
 
   protected $fillable =[
-    'nombres', 'apellidos', 'telefono', 'celular', 'fecha_nacimiento', 'visible','director'
+    'nombres', 'apellidos', 'telefono', 'celular', 'fecha_nacimiento', 'visible','director','fbid','ci'
   ];
 
   public $timestamps = true;

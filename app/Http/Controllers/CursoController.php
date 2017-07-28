@@ -39,11 +39,19 @@ class CursoController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+      $curso = Curso::find($id);
+      $curso->update($request->all());
+      $curso->save();
+      return response()->json(['bien'=>'okay']);
     }
 
     public function destroy($id)
     {
         //
     }
+  
+  public function crearCursoMateria()
+  {
+    
+  }
 }

@@ -33,3 +33,6 @@ Route::resource('docentes','DocenteController');
 Route::resource('materias','MateriaController');
 
 Route::resource('cursos','CursoController');
+Route::get('/php',function(){
+  phpinfo();
+});

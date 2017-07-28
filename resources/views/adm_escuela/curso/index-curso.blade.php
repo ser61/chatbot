@@ -31,7 +31,7 @@
             <tr>
               <th>Grado</th>
               <th>Curso</th>
-              <th>Capasidad</th>
+              <th>Capacidad</th>
               <th>Acciones</th>
             </tr>
             </thead>
@@ -47,7 +47,7 @@
                     <i class="fa fa-pencil"></i>
                   </a>
                   <a class="btn btn-sm btn-primary btn-cursomat-create"
-                     onclick="cargarEditarCurso('{{ route('cursos.edit', $curso->id) }}')">
+                     onclick="">
                     <i class="fa fa-plus"></i>
                   </a>
                   <a class="btn btn-sm btn-danger btn-curso-delete"
@@ -63,7 +63,7 @@
             <tr>
               <th>Grado</th>
               <th>Curso</th>
-              <th>Capasidad</th>
+              <th>Capacidad</th>
               <th>Acciones</th>
             </tr>
             </tfoot>

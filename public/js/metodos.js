@@ -170,9 +170,9 @@ function cargarEditarCurso(url) {
         dataType: 'json',
     }).done(function(res){
         $('#edit-id-curso').val(res.id);
-        $('#edit-nivel').val(res.nivel);
-        $('#edit-paralelo').val(res.paralelo);
-        $('#edit-capacidad').val(res.capacidad);
+        $('#nivel-edit').val(res.nivel);
+        $('#capacidad-editar').val(res.capacidad);
+        $('#paralelo-editar').val(res.paralelo);
     });
     $('#edit-curso').modal('show');
 }
@@ -180,26 +180,26 @@ function cargarEditarCurso(url) {
 function editarCurso(url) {
     var token = $('#curso-edit-token').val();
     var id = $("#edit-id-curso").val();
-    var nivel = $("#edit-nivel").val();
-    var paralelo = $("#edit-paralelo").val();
-    var capacidad = $("#edit-capacidad").val();
-    alert(paralelo);
+    var nivel = $("#nivel-edit").val();
+    var capacidad = $("#capacidad-editar").val();
+    var paralelo = $("#paralelo-editar").val();
     url = url.replace(':id', id);
     $.ajax({
         type: 'PUT',
         url: url,
         headers: {'X-CSRF-TOKEN':token},
-        data:{'nivel':nivel},
+        data:{'nivel':nivel, 'capacidad':capacidad,'paralelo':paralelo},
         dataType: 'json',
         success: function(data){
-            materia();
+            curso();
+            $('#edit-curso').modal('hide');
         },
         error: function(error){
             var errors = error.responseJSON;
             if ($.trim(errors)){
                 $.each( errors, function( key, value ) {
-                    $("#edit-materia-" + key).show();
-                    $("#edit-materia-" + key).text(value[0]);
+                    $("#edit-curso-" + key).show();
+                    $("#edit-curso-" + key).text(value[0]);
                 });
             }
         }
